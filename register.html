@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - E-Commerce Store</title>
+    <title>Register - MOMENTO</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1>🛍️ E-Shop</h1>
+                    <h1>MOMENTO</h1>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="cart.html" class="cart-link"><span id="cart-count" class="cart-count">0</span> Cart</a></li>
+                    <li><a href="login.html" class="auth-btn">Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -27,27 +32,28 @@
         <section class="auth-section">
             <div class="container">
                 <div class="auth-card">
-                    <h2>Register</h2>
+                    <h2>Create Account</h2>
+                    <p class="auth-subtitle">Join MOMENTO for exclusive access</p>
                     <form id="register-form">
                         <div class="form-group">
-                            <label for="reg-username">Username</label>
-                            <input type="text" id="reg-username" name="username" required>
+                            <label for="reg-username">Name (optional)</label>
+                            <input type="text" id="reg-username" name="name" autocomplete="name">
                         </div>
                         <div class="form-group">
                             <label for="reg-email">Email</label>
-                            <input type="email" id="reg-email" name="email" required>
+                            <input type="email" id="reg-email" name="email" autocomplete="username" required>
                         </div>
                         <div class="form-group">
                             <label for="reg-password">Password</label>
-                            <input type="password" id="reg-password" name="password" required>
+                            <input type="password" id="reg-password" name="password" autocomplete="new-password" required>
                         </div>
                         <div class="form-group">
                             <label for="reg-confirm-password">Confirm Password</label>
-                            <input type="password" id="reg-confirm-password" name="confirmPassword" required>
+                            <input type="password" id="reg-confirm-password" name="confirmPassword" autocomplete="new-password" required>
                         </div>
                         <div id="register-error" class="error" style="display: none;"></div>
                         <div id="register-success" class="success" style="display: none;"></div>
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
                     </form>
                     <p class="auth-footer">
                         Already have an account? <a href="login.html">Login here</a>
@@ -59,7 +65,42 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 E-Shop. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MOMENTO</h3>
+                    <p>Redefining fashion with<br>timeless elegance</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">New Arrivals</a></li>
+                        <li><a href="products.html">Women</a></li>
+                        <li><a href="products.html">Men</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MOMENTO. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

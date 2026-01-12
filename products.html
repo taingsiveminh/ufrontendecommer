@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - E-Commerce Store</title>
+    <title>Shop - MOMENTO</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1>🛍️ E-Shop</h1>
+                    <h1>MOMENTO</h1>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html" class="active">Products</a></li>
-                    <li><a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a></li>
-                    <li><a href="login.html" id="auth-link">Login</a></li>
+                    <li><a href="products.html" class="active">Shop</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="cart.html" class="cart-link"><span id="cart-count" class="cart-count">0</span> Cart</a></li>
+                    <li><a href="login.html" id="auth-link" class="auth-btn">Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -26,8 +31,11 @@
     <main>
         <section class="products-section">
             <div class="container">
-                <h2>Our Products</h2>
-                <div id="loading" class="loading">Loading products...</div>
+                <div class="section-header">
+                    <h2>Our Collection</h2>
+                    <p>Discover timeless pieces crafted with care</p>
+                </div>
+                <div id="loading" class="loading">Loading collection...</div>
                 <div id="error" class="error" style="display: none;"></div>
                 <div id="products-container" class="products-grid"></div>
             </div>
@@ -36,7 +44,42 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 E-Shop. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MOMENTO</h3>
+                    <p>Redefining fashion with<br>timeless elegance</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">New Arrivals</a></li>
+                        <li><a href="products.html">Women</a></li>
+                        <li><a href="products.html">Men</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MOMENTO. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

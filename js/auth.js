@@ -35,10 +35,13 @@ if (document.getElementById("login-form")) {
     document.getElementById("login-form").addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        const username = document.getElementById("username").value;
+        // Spring Boot API expects: { email, password }
+        // The UI input is labeled as username in HTML, but it should be an email.
+        const email = document.getElementById("username").value;
         const password = document.getElementById("password").value;
         const errorEl = document.getElementById("login-error");
         const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn?.textContent || "Sign In";
 
         try {
             submitBtn.disabled = true;
@@ -47,7 +50,7 @@ if (document.getElementById("login-form")) {
 
             const response = await apiCall("/auth/login", {
                 method: "POST",
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ email, password })
             });
 
             // Save token
@@ -55,9 +58,20 @@ if (document.getElementById("login-form")) {
                 setToken(response.token);
             }
 
-            // Save user info if available
-            if (response.user) {
-                localStorage.setItem("user", JSON.stringify(response.user));
+            // Spring Boot returns: { token, email, role }
+            if (response && (response.email || response.role)) {
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify({ email: response.email || email, role: response.role || null })
+                );
+            }
+
+            // Optional admin redirect (admin dashboard runs on a different origin)
+            if (String(response?.role || "").toUpperCase() === "ADMIN") {
+                const adminUrl = localStorage.getItem("ADMIN_URL") || "http://localhost:5173";
+                const base = String(adminUrl).replace(/\/+$/, "");
+                window.location.href = `${base}/login#token=${encodeURIComponent(response.token)}`;
+                return;
             }
 
             alert("Login successful!");
@@ -66,7 +80,7 @@ if (document.getElementById("login-form")) {
             errorEl.style.display = "block";
             errorEl.textContent = error.message || "Login failed. Please check your credentials.";
             submitBtn.disabled = false;
-            submitBtn.textContent = "Login";
+            submitBtn.textContent = originalBtnText;
         }
     });
 }
@@ -76,13 +90,13 @@ if (document.getElementById("register-form")) {
     document.getElementById("register-form").addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        const username = document.getElementById("reg-username").value;
         const email = document.getElementById("reg-email").value;
         const password = document.getElementById("reg-password").value;
         const confirmPassword = document.getElementById("reg-confirm-password").value;
         const errorEl = document.getElementById("register-error");
         const successEl = document.getElementById("register-success");
         const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn?.textContent || "Create Account";
 
         // Validate passwords match
         if (password !== confirmPassword) {
@@ -98,9 +112,10 @@ if (document.getElementById("register-form")) {
             errorEl.style.display = "none";
             successEl.style.display = "none";
 
-            const response = await apiCall("/auth/register", {
+            await apiCall("/auth/register", {
                 method: "POST",
-                body: JSON.stringify({ username, email, password })
+                // Spring Boot expects: { email, password }
+                body: JSON.stringify({ email, password })
             });
 
             successEl.style.display = "block";
@@ -114,7 +129,7 @@ if (document.getElementById("register-form")) {
             errorEl.style.display = "block";
             errorEl.textContent = error.message || "Registration failed. Please try again.";
             submitBtn.disabled = false;
-            submitBtn.textContent = "Register";
+            submitBtn.textContent = originalBtnText;
         }
     });
 }

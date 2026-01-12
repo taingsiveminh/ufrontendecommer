@@ -3,21 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Store - Home</title>
+    <title>MOMENTO - Luxury Fashion</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="container">
                 <div class="logo">
-                    <h1>🛍️ E-Shop</h1>
+                    <h1>MOMENTO</h1>
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="cart.html">Cart <span id="cart-count" class="badge">0</span></a></li>
-                    <li><a href="login.html" id="auth-link">Login</a></li>
+                    <li><a href="products.html">Shop</a></li>
+                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="cart.html" class="cart-link"><span id="cart-count" class="cart-count">0</span> Cart</a></li>
+                    <li><a href="login.html" id="auth-link" class="auth-btn">Login</a></li>
                 </ul>
             </div>
         </nav>
@@ -25,39 +30,136 @@
 
     <main>
         <section class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-subtitle">New Collection 2026</span>
+                <h2>Timeless<br>Elegance</h2>
+                <p>Discover our curated collection of premium fashion pieces<br>designed for the modern individual</p>
+                <a href="products.html" class="btn btn-primary">Explore Collection</a>
+            </div>
+        </section>
+
+        <section class="collections">
             <div class="container">
-                <div class="hero-content">
-                    <h2>Welcome to E-Shop</h2>
-                    <p>Discover amazing products at great prices</p>
-                    <a href="products.html" class="btn btn-primary">Shop Now</a>
+                <div class="section-header">
+                    <h2>Featured Collections</h2>
+                    <p>Carefully selected pieces that define contemporary style</p>
+                </div>
+                <div class="collections-grid">
+                    <div class="collection-card large">
+                        <div class="collection-image collection-women">
+                            <div class="collection-overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Women's Collection</h3>
+                            <p>Sophisticated designs for every occasion</p>
+                            <a href="products.html" class="collection-link">Shop Now →</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image collection-men">
+                            <div class="collection-overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Men's Essentials</h3>
+                            <p>Refined classics with a modern twist</p>
+                            <a href="products.html" class="collection-link">Shop Now →</a>
+                        </div>
+                    </div>
+                    <div class="collection-card">
+                        <div class="collection-image collection-accessories">
+                            <div class="collection-overlay"></div>
+                        </div>
+                        <div class="collection-info">
+                            <h3>Accessories</h3>
+                            <p>Complete your perfect look</p>
+                            <a href="products.html" class="collection-link">Shop Now →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="features">
             <div class="container">
-                <h2>Why Shop With Us</h2>
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="icon">🚚</div>
+                        <div class="icon">✓</div>
+                        <h3>Premium Quality</h3>
+                        <p>Handpicked materials from around the world</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">✓</div>
                         <h3>Free Shipping</h3>
-                        <p>On orders over $50</p>
+                        <p>Complimentary delivery on orders over $100</p>
                     </div>
                     <div class="feature-card">
-                        <div class="icon">💳</div>
-                        <h3>Secure Payment</h3>
-                        <p>100% secure transactions</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="icon">🔄</div>
+                        <div class="icon">✓</div>
                         <h3>Easy Returns</h3>
-                        <p>30-day return policy</p>
+                        <p>Hassle-free 30-day return policy</p>
                     </div>
                     <div class="feature-card">
-                        <div class="icon">⭐</div>
-                        <h3>Quality Products</h3>
-                        <p>Handpicked selection</p>
+                        <div class="icon">✓</div>
+                        <h3>Secure Payment</h3>
+                        <p>Protected transactions every time</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lookbook">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The Lookbook</h2>
+                    <p>Editorial-inspired outfits for everyday confidence</p>
+                </div>
+                <div class="lookbook-grid">
+                    <figure class="lookbook-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1520975593391-2f6f1d4f7062?auto=format&fit=crop&w=1400&q=80"
+                            alt="Minimal accessories"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <span class="lookbook-tag">Accessories</span>
+                            <h3>Minimal Details</h3>
+                        </figcaption>
+                    </figure>
+                    <figure class="lookbook-card tall">
+                        <img
+                            src="https://images.unsplash.com/photo-1520975682031-a5e1c0b0a4d7?auto=format&fit=crop&w=1400&q=80"
+                            alt="Women's fashion look"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <span class="lookbook-tag">Women</span>
+                            <h3>Modern Silhouettes</h3>
+                        </figcaption>
+                    </figure>
+                    <figure class="lookbook-card">
+                        <img
+                            src="https://images.unsplash.com/photo-1520975681922-04fb4f4c9a83?auto=format&fit=crop&w=1400&q=80"
+                            alt="Men's essentials"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <span class="lookbook-tag">Men</span>
+                            <h3>Everyday Essentials</h3>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay in Style</h2>
+                    <p>Subscribe to receive exclusive offers and style updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-dark">Subscribe</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -65,7 +167,42 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 E-Shop. All rights reserved.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MOMENTO</h3>
+                    <p>Redefining fashion with<br>timeless elegance</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="products.html">New Arrivals</a></li>
+                        <li><a href="products.html">Women</a></li>
+                        <li><a href="products.html">Men</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MOMENTO. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 

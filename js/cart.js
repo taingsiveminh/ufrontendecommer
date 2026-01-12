@@ -52,10 +52,10 @@ function createCartItem(item, index) {
     const itemDiv = document.createElement("div");
     itemDiv.className = "cart-item";
 
-    const imageUrl = item.image || `https://via.placeholder.com/100?text=${encodeURIComponent(item.name)}`;
+    const imageUrl = item.image || "assets/product-placeholder.svg";
 
     itemDiv.innerHTML = `
-        <img src="${imageUrl}" alt="${item.name}" class="cart-item-image" onerror="this.src='https://via.placeholder.com/100?text=Product'">
+        <img src="${imageUrl}" alt="${item.name}" class="cart-item-image" onerror="this.src='assets/product-placeholder.svg'">
         <div class="cart-item-info">
             <h3>${item.name}</h3>
             <p>Price: $${item.price.toFixed(2)}</p>
