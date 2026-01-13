@@ -18,8 +18,8 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html" class="active">Shop</a></li>
-                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="index.html#shop">Shop</a></li>
+                    <li><a href="index.html#collections">Collections</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="cart.html" class="cart-link"><span id="cart-count" class="cart-count">0</span> Cart</a></li>
                     <li><a href="login.html" id="auth-link" class="auth-btn">Login</a></li>
@@ -52,10 +52,10 @@
                 <div class="footer-section">
                     <h4>Shop</h4>
                     <ul>
-                        <li><a href="products.html">New Arrivals</a></li>
-                        <li><a href="products.html">Women</a></li>
-                        <li><a href="products.html">Men</a></li>
-                        <li><a href="products.html">Accessories</a></li>
+                        <li><a href="index.html#shop">New Arrivals</a></li>
+                        <li><a href="index.html#shop">Women</a></li>
+                        <li><a href="index.html#shop">Men</a></li>
+                        <li><a href="index.html#shop">Accessories</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -83,7 +83,16 @@
         </div>
     </footer>
 
+    <script>
+        // This project now renders the Shop as a section on the homepage.
+        // Redirect any direct visit to products.html to avoid full page reload navigation.
+        if (window.location && !window.location.hash) {
+            window.location.replace("index.html#shop");
+        }
+    </script>
+
     <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/auth.js"></script>
     <script src="js/products.js"></script>
     <script>

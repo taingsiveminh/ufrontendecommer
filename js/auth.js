@@ -74,8 +74,7 @@ if (document.getElementById("login-form")) {
                 return;
             }
 
-            alert("Login successful!");
-            window.location.href = "index.html";
+            window.location.href = "index.html#collections";
         } catch (error) {
             errorEl.style.display = "block";
             errorEl.textContent = error.message || "Login failed. Please check your credentials.";

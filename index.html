@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="top"></div>
     <header>
         <nav class="navbar">
             <div class="container">
@@ -17,9 +18,9 @@
                     <h1>MOMENTO</h1>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="products.html">Shop</a></li>
-                    <li><a href="products.html">Collections</a></li>
+                    <li><a href="#top" class="active">Home</a></li>
+                    <li><a href="#shop">Shop</a></li>
+                    <li><a href="#collections">Collections</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="cart.html" class="cart-link"><span id="cart-count" class="cart-count">0</span> Cart</a></li>
                     <li><a href="login.html" id="auth-link" class="auth-btn">Login</a></li>
@@ -35,11 +36,11 @@
                 <span class="hero-subtitle">New Collection 2026</span>
                 <h2>Timeless<br>Elegance</h2>
                 <p>Discover our curated collection of premium fashion pieces<br>designed for the modern individual</p>
-                <a href="products.html" class="btn btn-primary">Explore Collection</a>
+                <a href="#shop" class="btn btn-primary">Explore Collection</a>
             </div>
         </section>
 
-        <section class="collections">
+        <section class="collections" id="collections">
             <div class="container">
                 <div class="section-header">
                     <h2>Featured Collections</h2>
@@ -54,7 +55,7 @@
                         <div class="collection-info">
                             <h3>Women's Collection</h3>
                             <p>Sophisticated designs for every occasion</p>
-                            <a href="products.html" class="collection-link">Shop Now →</a>
+                            <a href="#shop" class="collection-link">Shop Now →</a>
                         </div>
                     </div>
                     <div class="collection-card">
@@ -65,7 +66,7 @@
                         <div class="collection-info">
                             <h3>Men's Essentials</h3>
                             <p>Refined classics with a modern twist</p>
-                            <a href="products.html" class="collection-link">Shop Now →</a>
+                            <a href="#shop" class="collection-link">Shop Now →</a>
                         </div>
                     </div>
                     <div class="collection-card">
@@ -76,10 +77,22 @@
                         <div class="collection-info">
                             <h3>Accessories</h3>
                             <p>Complete your perfect look</p>
-                            <a href="products.html" class="collection-link">Shop Now →</a>
+                            <a href="#shop" class="collection-link">Shop Now →</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section class="products-section" id="shop">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Collection</h2>
+                    <p>Discover timeless pieces crafted with care</p>
+                </div>
+                <div id="loading" class="loading" style="display: none;">Loading collection...</div>
+                <div id="error" class="error" style="display: none;"></div>
+                <div id="products-container" class="products-grid"></div>
             </div>
         </section>
 
@@ -178,10 +191,10 @@
                 <div class="footer-section">
                     <h4>Shop</h4>
                     <ul>
-                        <li><a href="products.html">New Arrivals</a></li>
-                        <li><a href="products.html">Women</a></li>
-                        <li><a href="products.html">Men</a></li>
-                        <li><a href="products.html">Accessories</a></li>
+                        <li><a href="#shop">New Arrivals</a></li>
+                        <li><a href="#shop">Women</a></li>
+                        <li><a href="#shop">Men</a></li>
+                        <li><a href="#shop">Accessories</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -210,7 +223,10 @@
     </footer>
 
     <script src="js/api.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/nav.js"></script>
     <script>
         // Update cart count on page load
         updateCartCount();

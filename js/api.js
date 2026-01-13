@@ -12,6 +12,18 @@ const API_URL = (typeof window !== "undefined" && window.API_URL)
     || localStorage.getItem("API_URL")
     || DEFAULT_API_URL;
 
+const FALLBACK_API_URL = "http://localhost:8080/api";
+
+function isLocalhostHost(hostname) {
+    return hostname === "localhost" || hostname === "127.0.0.1";
+}
+
+function isUsingDefaultOriginApiUrl() {
+    return (typeof window !== "undefined"
+        && window.location
+        && API_URL === `${window.location.origin}/api`);
+}
+
 function setApiUrl(url) {
     localStorage.setItem("API_URL", url);
 }
@@ -55,13 +67,34 @@ async function apiCall(endpoint, options = {}) {
             );
         }
 
-        const response = await fetch(`${API_URL}${endpoint}`, {
-            ...options,
-            headers: {
-                ...getAuthHeaders(),
-                ...options.headers
+        const doFetch = async (baseUrl) => {
+            return fetch(`${baseUrl}${endpoint}`, {
+                ...options,
+                headers: {
+                    ...getAuthHeaders(),
+                    ...options.headers
+                }
+            });
+        };
+
+        let response = await doFetch(API_URL);
+
+        // If the frontend is being served by a simple static server (e.g. VS Code Live Server)
+        // then `${window.location.origin}/api` won't be proxied to the backend and may return 404/405.
+        // Auto-fallback to the backend API directly for localhost dev.
+        if (!response.ok
+            && (response.status === 404 || response.status === 405)
+            && typeof window !== "undefined"
+            && window.location
+            && isLocalhostHost(window.location.hostname)
+            && isUsingDefaultOriginApiUrl()
+            && API_URL !== FALLBACK_API_URL
+        ) {
+            response = await doFetch(FALLBACK_API_URL);
+            if (response.ok) {
+                setApiUrl(FALLBACK_API_URL);
             }
-        });
+        }
         
         if (!response.ok) {
             const contentType = response.headers.get("content-type") || "";
