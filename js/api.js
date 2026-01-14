@@ -2,10 +2,18 @@
 // You can override this without editing code:
 // - in DevTools console: localStorage.setItem('API_URL', 'http://localhost:8080/api')
 // - or set window.API_URL before loading this script
+const RENDER_API_URL = "https://spring-posgresttestapiecoomer-3.onrender.com/api";
+
+function isLocalhostHost(hostname) {
+    return hostname === "localhost" || hostname === "127.0.0.1";
+}
+
 const DEFAULT_API_URL = (typeof window !== "undefined"
     && window.location
     && (window.location.protocol === "http:" || window.location.protocol === "https:"))
-    ? `${window.location.origin}/api`
+    ? (isLocalhostHost(window.location.hostname)
+        ? `${window.location.origin}/api`
+        : RENDER_API_URL)
     : "http://localhost:8080/api";
 
 const API_URL = (typeof window !== "undefined" && window.API_URL)
@@ -13,10 +21,6 @@ const API_URL = (typeof window !== "undefined" && window.API_URL)
     || DEFAULT_API_URL;
 
 const FALLBACK_API_URL = "http://localhost:8080/api";
-
-function isLocalhostHost(hostname) {
-    return hostname === "localhost" || hostname === "127.0.0.1";
-}
 
 function isUsingDefaultOriginApiUrl() {
     return (typeof window !== "undefined"

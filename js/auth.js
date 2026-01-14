@@ -68,7 +68,11 @@ if (document.getElementById("login-form")) {
 
             // Optional admin redirect (admin dashboard runs on a different origin)
             if (String(response?.role || "").toUpperCase() === "ADMIN") {
-                const adminUrl = localStorage.getItem("ADMIN_URL") || "http://localhost:5173";
+                const defaultAdminUrl = (typeof window !== "undefined" && window.location && window.location.hostname === "localhost")
+                    ? "http://localhost:5173"
+                    : "https://admin-dashborad-vite-rier.vercel.app";
+
+                const adminUrl = localStorage.getItem("ADMIN_URL") || defaultAdminUrl;
                 const base = String(adminUrl).replace(/\/+$/, "");
                 window.location.href = `${base}/login#token=${encodeURIComponent(response.token)}`;
                 return;
